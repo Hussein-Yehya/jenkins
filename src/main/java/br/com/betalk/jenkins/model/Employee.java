@@ -20,6 +20,9 @@ public class Employee {
 		this.name = name;
 	}
 
+	public Employee() {
+	}
+
 	public Long getId() {
 		return id;
 	}
