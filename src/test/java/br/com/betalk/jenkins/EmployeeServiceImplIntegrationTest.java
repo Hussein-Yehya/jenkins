@@ -2,7 +2,6 @@ package br.com.betalk.jenkins;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -35,16 +34,14 @@ public class EmployeeServiceImplIntegrationTest {
 	@MockBean
 	private EmployeeRepository employeeRepository;
 
-	@Before
-	public void setUp() {
-		Employee alex = new Employee("alex");
-
-		Mockito.when(employeeRepository.findByName(alex.getName())).thenReturn(alex);
-	}
-
 	@Test
 	public void whenValidName_thenEmployeeShouldBeFound() {
 		String name = "alex";
+
+		Employee alex = new Employee("alex");
+
+		Mockito.when(employeeRepository.findByName(alex.getName())).thenReturn(alex);
+
 		Employee found = employeeService.getEmployeeByName(name);
 
 		assertEquals(found.getName(), name);
