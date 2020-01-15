@@ -34,9 +34,9 @@ public class EmployeeServiceImplIntegrationTest {
 	@MockBean
 	private EmployeeRepository employeeRepository;
 
-	@Test
+ 	@Test
 	public void whenValidName_thenEmployeeShouldBeFound() {
-		String name = "alex";
+		String name = "alex"+"";
 
 		Employee alex = new Employee("alex");
 
